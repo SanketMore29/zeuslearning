@@ -15,6 +15,17 @@
     background-color: #1C2530;
     opacity: 0.8;
 }
+select{
+    width: 100%;
+    border:0;
+    border-bottom: 1px solid gray;
+    margin-bottom: 5px;
+}
+select>option{
+    font-size: 15px;
+    font-weight: bold;
+    
+}
 .footer{
     padding: 12px;
    background-color: pink;
