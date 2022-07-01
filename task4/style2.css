@@ -64,9 +64,10 @@ nav > ul >li >a:focus{
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 2fr 1fr;
 }
+.staricon{
+    float: right;
+}
 .imgmask{
-    background-image: url('assets/images/imageMask.png');
-    background-repeat: no-repeat;
     grid-column: 1/2;
     grid-row: 1;
 }

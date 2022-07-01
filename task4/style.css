@@ -8,8 +8,12 @@
 
 .header{
     color: aliceblue;
-    background-image: url('assets/header\ pattern\ image.png');
+    background: url('assets/header\ pattern\ image.png'),no-repeat,#1C2530;
     border-bottom: 4px solid #3AC7EC;
+}
+.h12{
+    background-color: #1C2530;
+    opacity: 0.8;
 }
 .footer{
     padding: 12px;
@@ -31,19 +35,29 @@ body{
 }
 .main{
     background-color: #FFFFFF;
-    width: 488px;
+    width: 500px;
     height: 550px;
-    margin: 98px 100px;
+    margin: 24px 10px;
     font-family: quicksand;
     font-weight: bold;
     border-top: 4px solid #3AC7EC;
 }
 .textInput {
-    width: 100%;
+    width: 94%;
     outline: 0;
     border-width: 0 0 2px;
     border-color: blue
   }
-  a {
+a {
 color: green;
-  }
+}
+.loginq{
+    padding: 12px;
+    font-weight: bold;
+    font-size: 25px;
+}
+.preye{
+    float: right;
+    margin-left: -30px;
+    cursor: pointer;
+}

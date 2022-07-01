@@ -19,43 +19,43 @@
     <title>Task 4</title>
   </head>
   <body>
-    <div class="header mx-0">
+    <!-- <div class="header mx-0">
       <header class="container">
         <img src="assets/icons/logo used in header.svg" alt="">
       </header>
+    </div> -->
+
+    <div class="header mx-0">
+      <div class="row w-100 h12">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#"
+              ><img src="assets/icons/logo used in header.svg" alt="logo"
+            /></a>
+          </div>
+        </nav>
+      </div>
     </div>
     <div class="main container align-self-center">
       <form action="">
         <div class="row">
-          <div class="col">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-arrow-left d-inline"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
-              />
-            </svg>
+          <div class="col d-flex text-center justify-content-center">
+           <img src="assets/icons/back.svg" alt="" width="30px">
           </div>
           <div class="col text-nowrap text-center">
-            <h2>Log in with Quantum</h2>
+            <h2 class="loginq">Log in with Quantum</h2>
           </div>
           <div class="col"></div>
         </div>
         <div class="row my-2">
-          <div class="container d-flex text-center">
+          <div class="container d-flex text-start mx-4 my-2">
             <div class="col-sm">
               <input type="radio" name="School" class="form-check-input" />
-              <label for="District" class="form-check-label"> District </label>
+              <label for="District" class="form-check-label mx-2"> District </label>
             </div>
             <div class="col-sm">
               <input type="radio" name="School" class="form-check-input" />
-              <label class="form-check-label" for="Independant school">
+              <label class="form-check-label mx-2" for="Independant school">
                 Independant school
               </label>
             </div>
@@ -85,7 +85,8 @@
           </div>
           <div class="row my-2">
             <div class="col mx-4">
-                <input type="text" placeholder="Password" class="textInput border-bottom">
+              <img src="assets/icons/preview.svg" alt="" class="preye">
+              <input type="text" placeholder="Password" class="textInput border-bottom">
                 <a href="" class="d-flex justify-content-end">Forget Password?</a>
             </div>
           </div>
