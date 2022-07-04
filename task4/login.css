@@ -82,12 +82,7 @@ color: green;
     margin-left: -30px;
     cursor: pointer;
 }
-/* .remember input[type=checkbox] + input[type=checkbox]{
-    background-image: url('assets/icons/checkbox-unchecked.svg');
-}
-.remember input[type=checkbox]:checked + input[type=checkbox]{
-    background-image: url('assets/icons/checkbox-checked.svg');
-} */
+
 .loginbtn{
     width: 215px;
     height: 40px;
