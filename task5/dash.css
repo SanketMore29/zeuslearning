@@ -98,6 +98,9 @@ nav > ul >li >a:focus{
 .alldata{
     grid-column: 2/-1;
 }
+.navbar-1{
+    margin-left: auto;
+}
 .foot{
     grid-column: 1/-1;
     grid-row: 2/-1;
@@ -105,8 +108,43 @@ nav > ul >li >a:focus{
 #fourthcontainer:nth-child(1n){
     margin:4px 10px;
 }
-@media only screen and (max-width: 600px) {
+.hamburgermenu{
+    display: inline-block;
+    visibility: hidden;
+}
+.subnav{
+    display: none;
+    position: fixed;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 150px;
+    top: 0;
+    right: 0;
+    margin-top: 5vh;
+    margin-right: 2vw;
+
+}
+.subnav ul li {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+   
+}
+.hamburgermenu:hover .subnav{
+    display: block;
+}
+@media only screen and (max-width: 1000px) {
     .alldata{
         margin-left: auto;
+    }
+    .navbar-1{
+        visibility: hidden;
+    }
+    .hamburgermenu{
+        visibility: visible;
     }
   }
