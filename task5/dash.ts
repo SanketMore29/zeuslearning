@@ -1,9 +1,9 @@
 const mainBody:any = document.querySelector(".mainbody");
 var markup = `
-<div class="header mx-0">
+<div class="header">
   <div class="row h12">
     <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
+      <div class="container">
         <a class="navbar-brand" href="#"
           ><img src="assets/icons/logo%20used%20in%20header.svg" alt="logo"
         /></a>
@@ -23,6 +23,14 @@ var markup = `
               <a class="nav-link" href="#"
                 ><img src="assets/icons/account_circle.svg" alt=""
               /></a>
+            </li>
+            <li class="nav-item">
+              <a href="#">
+                <div class="hamburgermenu order-3">
+                  <img src="assets/icons/hamburger-menu.svg" alt="">
+                  
+              </div>
+              </a>
             </li>
           </ul>
         </div>
@@ -48,10 +56,10 @@ var markup = `
             </li>
           </ul>
         </div>
-        <div class="hamburgermenu order-3">
+        <!-- <div class="hamburgermenu order-3">
             <img src="assets/icons/hamburger-menu.svg" alt="">
             
-        </div>
+        </div> -->
       </div>
     </nav>
     <div class="subnav">
@@ -264,6 +272,20 @@ var markup = `
 mainBody.innerHTML = markup;
 const hammenu = document.querySelector(".hamburgermenu") as HTMLElement;
 const subnav = document.querySelector(".subnav") as HTMLElement;
+var acc = document.getElementsByClassName("accordion");
+
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+
 hammenu.addEventListener('mouseover',()=>{
   subnav.style.display = 'block';
 },false);

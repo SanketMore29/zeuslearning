@@ -20,10 +20,10 @@
   </head>
   <body>
    
-<div class="header mx-0">
+<div class="header">
   <div class="row h12">
     <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
+      <div class="container">
         <a class="navbar-brand" href="#"
           ><img src="assets/icons/logo%20used%20in%20header.svg" alt="logo"
         /></a>
@@ -43,6 +43,13 @@
               <a class="nav-link" href="#"
                 ><img src="assets/icons/account_circle.svg" alt=""
               /></a>
+            </li>
+            <li class="nav-item">
+              <a>
+                <div class="hamburgermenu order-3">
+                  <img src="assets/icons/hamburger-menu.svg" alt="">
+              </div>
+              </a>
             </li>
           </ul>
         </div>
@@ -68,16 +75,20 @@
             </li>
           </ul>
         </div>
-        <div class="hamburgermenu order-3">
+        <!-- <div class="hamburgermenu order-3">
             <img src="assets/icons/hamburger-menu.svg" alt="">
             
-        </div>
+        </div> -->
       </div>
     </nav>
     <div class="subnav">
         <ul>
-          <li>Dashboard</li>
-          <li>Content</li>
+          <li>Dashboard
+          </li>
+          <li>
+            <button class="accordion">Content</button>
+            <div class="panel">Course Catalog</div>
+          </li>
           <li>Users</li>
           <li>Reports</li>
           <li>admin</li>
@@ -280,5 +291,26 @@
     </div>
   </footer>
   </div>
+
+
+
+
+
+  <script>
+    var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("act");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+  </script>
   </body>
 </html>
