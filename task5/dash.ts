@@ -25,10 +25,9 @@ var markup = `
               /></a>
             </li>
             <li class="nav-item">
-              <a href="#">
+              <a>
                 <div class="hamburgermenu order-3">
                   <img src="assets/icons/hamburger-menu.svg" alt="">
-                  
               </div>
               </a>
             </li>
@@ -62,17 +61,18 @@ var markup = `
         </div> -->
       </div>
     </nav>
-    <div class="subnav">
-        <ul>
-          <li>Dashboard</li>
-          <li>Content</li>
-          <li>Users</li>
-          <li>Reports</li>
-          <li>admin</li>
-        </ul>
-      </div>
   </div>
+  <div class="subnav">
+    <button class="accordion">Dashboard</button>
+    <button class="accordion">Content</button>
+    <div class="panel">
+      Course Catalog
+    </div>
+    <button class="accordion">Users</button>
+    <button class="accordion">Reports</button>
+    <button class="accordion">Admin</button>
   </div>
+</div>
   
   <!-- Main area  -->
   <div class="mainarea container">
@@ -268,6 +268,9 @@ var markup = `
     </div>
   </footer>
   </div>
+
+
+
 `;
 mainBody.innerHTML = markup;
 const hammenu = document.querySelector(".hamburgermenu") as HTMLElement;
@@ -276,8 +279,14 @@ var acc = document.getElementsByClassName("accordion");
 
 for (let i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
+    this.classList.toggle("act");
     var panel = this.nextElementSibling;
+    setTimeout(() => {
+      this.classList.toggle("act");
+      if (panel.style.maxHeight === '23px' ) {
+        panel.style.maxHeight = 0;
+      }
+    }, 5000);
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
     } else {
@@ -290,11 +299,9 @@ hammenu.addEventListener('mouseover',()=>{
   subnav.style.display = 'block';
 },false);
 subnav.addEventListener('mouseover',()=>{
-  subnav.style.display = 'block';
-},false);
-hammenu.addEventListener('mouseout',()=>{
-  subnav.style.display = 'none';
+    subnav.style.display = 'block';
 },false);
 subnav.addEventListener('mouseout',()=>{
-  subnav.style.display = 'none';
+    subnav.style.display = 'none';
 },false);
+
