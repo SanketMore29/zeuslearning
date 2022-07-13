@@ -1,5 +1,6 @@
 const mainBody:any = document.querySelector(".mainbody");
 var markup = `
+   
 <div class="header">
   <div class="row h12">
     <nav class="navbar navbar-expand-lg">
@@ -10,12 +11,12 @@ var markup = `
         <div class="d-flex flex-row order-2 order-lg-3 icons1">
           <ul class="navbar-nav flex-row ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#"
+              <a class="nav-link al" href="#"
                 ><img src="assets/icons/alerts.svg" alt=""
               /></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"
+              <a class="nav-link ann" href="#"
                 ><img src="assets/icons/announcements.svg" alt=""
               /></a>
             </li>
@@ -63,6 +64,29 @@ var markup = `
     </nav>
   </div>
   <div class="subnav">
+    <button class="accordion">Dashboard</button>
+    <button class="accordion">Content</button>
+    <div class="panel">
+      Course Catalog
+    </div>
+    <button class="accordion">Users</button>
+    <button class="accordion">Reports</button>
+    <button class="accordion">Admin</button>
+  </div>
+  <div class="announcenav">
+    <div class="anns">
+      <div class="allann">
+        
+        <!-- TEST MATERIAL -->
+
+      </div>
+      <div class="annbuttons">
+        <button>Show All</button>
+        <button>Create new</button>
+      </div>
+    </div>
+  </div>
+  <div class="alertnav">
     <button class="accordion">Dashboard</button>
     <button class="accordion">Content</button>
     <div class="panel">
@@ -270,12 +294,56 @@ var markup = `
   </div>
 
 
-
 `;
+var announcementsdata:{
+  "Name":string;
+  "icontype":string;
+  "message":string;
+  "numberoffiles":number;
+  "date":string;
+  "time":string;
+  "course":string;
+}[]=[
+  {
+    "Name":'Wilson Kumar',
+    "icontype":'greentick.png',
+    "message":'No classes Will be held on 21st Nov',
+    "numberoffiles":2,
+    "date":'15-sep-2018 ',
+    "time":'7:21 pm',
+    "course":''
+  },
+  {
+    "Name":'Samson white',
+    "icontype":'dndicon.png',
+    "message":'No classes Will be held on 21st Nov',
+    "numberoffiles":2,
+    "date":'15-sep-2018 ',
+    "time":'7:21 pm',
+    "course":''
+  },
+  {
+    "Name":'Samson white',
+    "icontype":'greentick.png',
+    "message":'No classes Will be held on 21st Nov',
+    "numberoffiles":0,
+    "date":'15-sep-2018 ',
+    "time":'7:21 pm',
+    "course":'Mathematics 101'
+  },
+] ;
+
+
+
 mainBody.innerHTML = markup;
 const hammenu = document.querySelector(".hamburgermenu") as HTMLElement;
 const subnav = document.querySelector(".subnav") as HTMLElement;
+const ann = document.querySelector('.ann') as HTMLElement;
+const annav = document.querySelector('.announcenav') as HTMLElement;
+const al = document.querySelector('.al') as HTMLElement;
+const alnav = document.querySelector('.alertnav') as HTMLElement;
 var acc = document.getElementsByClassName("accordion");
+const allann = document.querySelector('.allann') as HTMLElement;
 
 for (let i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
@@ -305,3 +373,44 @@ subnav.addEventListener('mouseout',()=>{
     subnav.style.display = 'none';
 },false);
 
+ann.addEventListener('mouseover',()=>{
+  annav.style.display = 'block';
+},false);
+annav.addEventListener('mouseover',()=>{
+    annav.style.display = 'block';
+},false);
+annav.addEventListener('mouseout',()=>{
+    annav.style.display = 'none';
+},false);
+
+// al.addEventListener('mouseover',()=>{
+//   alnav.style.display = 'block';
+// },false);
+// alnav.addEventListener('mouseover',()=>{
+//     alnav.style.display = 'block';
+// },false);
+// alnav.addEventListener('mouseout',()=>{
+//     alnav.style.display = 'none';
+// },false);
+var a1 = '';
+announcementsdata.forEach(adata => {
+
+  a1 += `
+  
+  <div class="anncard ${adata.icontype==='dndicon.png'? 'dndicon' : ''}" >
+  <div class="headingofcard">
+    <span>PA:</span> ${adata.Name} <span><img src="assets/icons/${adata.icontype}" alt="tick"></span><br>
+  </div>
+  <div class="dataofcard">
+    <span>${adata.message}</span><br>
+    ${adata.course?'<span class="course">Course: '+adata.course+'</span>' : ''}
+  </div>
+  <div class="footerofcard">
+    ${adata.numberoffiles > 0 ? '<span><img src="assets/icons/paperclip.svg" alt="clipicon"></span>'+adata.numberoffiles+' files are attached' : ''}  &nbsp;&nbsp;&nbsp;&nbsp;<span class="datetime">${adata.date} at ${adata.time}</span>
+  </div>
+  </div>
+  <hr>
+  `;
+  
+  allann.innerHTML = a1;
+});
