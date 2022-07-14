@@ -1,3 +1,4 @@
+
 const mainBody:any = document.querySelector(".mainbody");
 var markup = `
    
@@ -76,9 +77,7 @@ var markup = `
   <div class="announcenav">
     <div class="anns">
       <div class="allann">
-        
-        <!-- TEST MATERIAL -->
-
+       <!-- Annnouncements -->
       </div>
       <div class="annbuttons">
         <button>Show All</button>
@@ -87,14 +86,15 @@ var markup = `
     </div>
   </div>
   <div class="alertnav">
-    <button class="accordion">Dashboard</button>
-    <button class="accordion">Content</button>
-    <div class="panel">
-      Course Catalog
-    </div>
-    <button class="accordion">Users</button>
-    <button class="accordion">Reports</button>
-    <button class="accordion">Admin</button>
+  <div class="anns">
+  <div class="allann1">
+  <!-- Alerts -->
+  </div>
+  <div class="annbuttons">
+    <button>Show All</button>
+  </div>
+</div>
+   
   </div>
 </div>
   
@@ -120,7 +120,7 @@ var markup = `
     </div>
   </div>
   <hr />
-  .<div class="container-fluid">
+  <div class="container-fluid">
     
     <div class="row">
       <div class="col cards col-sm-12 col-md col-12">
@@ -295,6 +295,57 @@ var markup = `
 
 
 `;
+
+var alertsdata:{
+  "icontype":string;
+  "message":string; 
+  "date":string;
+  "time":string;
+  "course":string;
+}[]=[
+  {
+    "icontype":'dndicon.png',
+    "message":'License for Introduction to Algebra has been assigned to your school',
+    "date":'15-sep-2018 ',
+    "time":'7:21 pm',
+    "course":''
+  },
+  {
+    "icontype":'greentick.png',
+    "message":'Lesson 3 Practice Worksheet overdue for Amy Santiago',
+    "date":'15-sep-2018 ',
+    "time":'5:21 pm',
+    "course":'Advanced Mathematics'
+  },
+  {
+    "icontype":'dndicon.png',
+    "message":'23 new students created',
+    "date":'14-sep-2018 ',
+    "time":'1:21 pm',
+    "course":''
+  },
+  {
+    "icontype":'dndicon.png',
+    "message":'15 submissions ready for evaluation',
+    "date":'13-sep-2018 ',
+    "time":'1:15 pm',
+    "course":'Basic of Algebra'
+  },
+  {
+    "icontype":'dndicon.png',
+    "message":'License for Basic Concepts in Geometry has been assigned to your... school',
+    "date":'15-sep-2018 ',
+    "time":'7:21 pm',
+    "course":''
+  },
+  {
+    "icontype":'greentick.png',
+    "message":'Lesson 3 Practice Worksheet overdue for Sam Diego',
+    "date":'15-sep-2018 ',
+    "time":'7:21 pm',
+    "course":'Advanced Mathematics'
+  },
+] ;
 var announcementsdata:{
   "Name":string;
   "icontype":string;
@@ -316,16 +367,34 @@ var announcementsdata:{
   {
     "Name":'Samson white',
     "icontype":'dndicon.png',
-    "message":'No classes Will be held on 21st Nov',
+    "message":'Guest lecture on Geometry on 20th September',
     "numberoffiles":2,
     "date":'15-sep-2018 ',
     "time":'7:21 pm',
     "course":''
   },
   {
-    "Name":'Samson white',
+    "Name":'Wilson Kumar',
     "icontype":'greentick.png',
-    "message":'No classes Will be held on 21st Nov',
+    "message":'Additional course materials available on request',
+    "numberoffiles":0,
+    "date":'15-sep-2018 ',
+    "time":'7:21 pm',
+    "course":'Mathematics 101'
+  },
+  {
+    "Name":'Wilson Kumar',
+    "icontype":'dndicon.png',
+    "message":'No classes Will be held on 25th Dec',
+    "numberoffiles":0,
+    "date":'15-sep-2018 ',
+    "time":'7:21 pm',
+    "course":''
+  },
+  {
+    "Name":'Wilson Kumar',
+    "icontype":'dndicon.png',
+    "message":'Additional course materials available on request',
     "numberoffiles":0,
     "date":'15-sep-2018 ',
     "time":'7:21 pm',
@@ -334,8 +403,8 @@ var announcementsdata:{
 ] ;
 
 
-
 mainBody.innerHTML = markup;
+//Query  select
 const hammenu = document.querySelector(".hamburgermenu") as HTMLElement;
 const subnav = document.querySelector(".subnav") as HTMLElement;
 const ann = document.querySelector('.ann') as HTMLElement;
@@ -344,7 +413,9 @@ const al = document.querySelector('.al') as HTMLElement;
 const alnav = document.querySelector('.alertnav') as HTMLElement;
 var acc = document.getElementsByClassName("accordion");
 const allann = document.querySelector('.allann') as HTMLElement;
+const allann1 = document.querySelector('.allann1') as HTMLElement;
 
+//accordion
 for (let i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
     this.classList.toggle("act");
@@ -363,8 +434,12 @@ for (let i = 0; i < acc.length; i++) {
   });
 }
 
+// Events
 hammenu.addEventListener('mouseover',()=>{
   subnav.style.display = 'block';
+  subnav.style.transition = "all 2s";
+  alnav.style.display = 'none';
+  annav.style.display = 'none';
 },false);
 subnav.addEventListener('mouseover',()=>{
     subnav.style.display = 'block';
@@ -375,6 +450,8 @@ subnav.addEventListener('mouseout',()=>{
 
 ann.addEventListener('mouseover',()=>{
   annav.style.display = 'block';
+  subnav.style.display = 'none';
+  alnav.style.display = 'none';
 },false);
 annav.addEventListener('mouseover',()=>{
     annav.style.display = 'block';
@@ -383,20 +460,22 @@ annav.addEventListener('mouseout',()=>{
     annav.style.display = 'none';
 },false);
 
-// al.addEventListener('mouseover',()=>{
-//   alnav.style.display = 'block';
-// },false);
-// alnav.addEventListener('mouseover',()=>{
-//     alnav.style.display = 'block';
-// },false);
-// alnav.addEventListener('mouseout',()=>{
-//     alnav.style.display = 'none';
-// },false);
+al.addEventListener('mouseover',()=>{
+  alnav.style.display = 'block';
+  subnav.style.display = 'none';
+  annav.style.display = 'none';
+},false);
+alnav.addEventListener('mouseover',()=>{
+    alnav.style.display = 'block';
+},false);
+alnav.addEventListener('mouseout',()=>{
+    alnav.style.display = 'none';
+},false);
+
+//innerHTML
 var a1 = '';
 announcementsdata.forEach(adata => {
-
   a1 += `
-  
   <div class="anncard ${adata.icontype==='dndicon.png'? 'dndicon' : ''}" >
   <div class="headingofcard">
     <span>PA:</span> ${adata.Name} <span><img src="assets/icons/${adata.icontype}" alt="tick"></span><br>
@@ -411,6 +490,23 @@ announcementsdata.forEach(adata => {
   </div>
   <hr>
   `;
-  
   allann.innerHTML = a1;
+});
+var a2 = '';
+alertsdata.forEach(adata => {
+  a2 += `
+  <div class="anncard ${adata.icontype==='dndicon.png'? 'dndicon' : ''}" >
+  <div class="dataofcard">
+    <span>${adata.message}</span><img src="assets/icons/${adata.icontype}" alt="tick"></span><br><br>
+    ${adata.course?'<span class="course">Course: '+adata.course+'</span>' : ''}
+  </div>
+  <div class="footerofcard">
+     <span class="datetime">${adata.date} at ${adata.time}</span>
+  </div>
+  </div>
+  <hr>
+  `;
+  console.log(a2);
+  
+  allann1.innerHTML = a2;
 });
